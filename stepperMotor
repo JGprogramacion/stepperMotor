@@ -1,0 +1,10 @@
+#include <Stepper.h>                              //Incluir libreria stepper
+Stepper motor1(2048, 8, 10, 9, 11);               //Crear objeto de tipo Stepper con el nombre de motor1(Cantidad de pasos para giro de 360°, IN1,IN2,IN3,IN4) 
+                                                  //Se realiza conversión --> 2048 = 360°, 1024 = 180°
+void setup() {
+  motor1.setSpeed(10);                            //Velocidad del motor en RPM(valores de 1, 2 o 3 (los mas utilizados) para 28BYJ-48, se puede digitar hasta 5)
+}
+void loop() {
+  motor1.step(1024);                              //Comando para generar giro (en este caso giro de 180°)      
+  delay(1000);                                    //Tiempo de espera para instrucciones anteriores, es necesario utilizar un delay para obsercar los grados de giro.
+}
